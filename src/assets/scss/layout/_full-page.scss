@@ -1,0 +1,66 @@
+.full-page {
+	// background-color: red;
+
+	&__bg {
+		@extend %d-flex, %justify-content-center, %align-items-center;
+		padding: 6rem !important;
+		background-image: url($hero-image);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		@include media-breakpoint-up(lg) {
+			position: -webkit-sticky;
+			position: sticky;
+			height: 100vh;
+			top: 0;
+		}
+	}
+
+	&__heading {
+		color: $white;
+		text-align: center;
+
+		h1 {
+			@extend %ff-fuggles, %mb-2;
+			font-size: 8rem;
+			line-height: 6rem;
+
+			@include media-breakpoint-up(md) {
+				font-size: 14rem;
+				line-height: 11rem;
+			}
+
+			span {
+				@extend %d-block;
+			}
+		}
+
+		p {
+			text-transform: uppercase;
+			letter-spacing: .8rem;
+
+			@include media-breakpoint-up(md) {
+				font-size: 2rem;
+			}
+			
+			&:not(:last-child) {
+				@extend %mb-2;				
+			}
+		}
+	}
+
+	&__content {
+		@include media-breakpoint-up(md) {
+			padding: 3rem;
+		}
+		
+		h2 {
+			@extend %mb-3, %text-center;
+		}
+	}
+
+	&__carousel {
+
+	}
+}

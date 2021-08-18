@@ -1,0 +1,13 @@
+@mixin carousel-dot($theme, $theme-hover) {
+    li {
+        button {
+            &::before {
+                color: $theme;
+            }
+        }
+
+        &.slick-active button:before {
+            color: $theme-hover;
+        }
+    }
+}

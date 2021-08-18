@@ -1,0 +1,215 @@
+%base-list {
+    list-style: none;
+    padding: 0 !important;
+}
+
+%base-nested-ordered {
+    list-style-type: decimal;
+
+    ol {
+        list-style: lower-alpha;
+
+        ol {
+            list-style: lower-roman;
+        }
+    }
+}
+
+%base-list-inline {
+    @extend %base-list, %base-footer-list, %d-inline-flex, %mb-0;
+
+    li {
+        line-height: 1.3;
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+            padding-right: 1rem;
+        }
+    }
+}
+
+%base-list-inline-border {
+    @extend %base-list-inline;
+
+    li:not(:last-child) {
+        border-right: solid 0.1rem $white;
+    }
+}
+
+%base-list-spacing {
+    padding: 0 0 0 4rem !important;
+}
+
+%base-footer-list {
+    a {
+        color: $white;
+        @include make-transition(color);
+
+        @include hover() {
+            color: $ad-l-secondary;
+        }
+    }
+}
+
+// ol,
+// ul {
+//     @extend %base-list-spacing;
+// }
+
+.list {
+    &-header {
+        @extend %base-list;
+
+        li:not(:last-child) {
+            margin-bottom: 0.75rem;
+        }
+
+        a {
+            font-size: 1.4rem;
+            font-weight: 600;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 1.6rem;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            padding-bottom: 1rem !important;
+            padding-left: 1rem !important;
+        }
+
+        &--inline-border {
+            @extend %base-list-inline-border;
+
+            a {
+                padding: 0 !important;
+                color: $white !important;
+                font-size: 1.1rem !important;
+            }
+        }
+    }
+
+    &-nav-tab {
+        @extend %base-list;
+        flex-direction: column;
+
+        a {
+            display: block;
+            color: $ad-primary;
+            padding: 3rem;
+            border: solid 0.1rem transparent;
+
+            @include make-transition(border-color);
+            @include hover() {
+                border-color: $ad-d-light;
+            }
+
+            &.active {
+                border-color: $ad-d-light;
+            }
+        }
+
+        &--horizontal {
+            @extend %base-list, %justify-content-center;
+
+            li {
+                &:not(:last-child) {
+                    margin-right: 10rem;
+                }
+            }
+
+            a {
+                display: block;
+                color: $ad-primary;
+                font-size: 2rem;
+                font-weight: 800;
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+                border-bottom: solid 0.3rem transparent;
+
+                @include make-transition(border-color);
+                @include hover() {
+                    border-color: $ad-primary;
+                }
+
+                &.active {
+                    border-color: $ad-primary;
+                }
+            }
+        }
+    }
+}
+
+.sticky-sharing {
+    @extend %base-list,
+        %d-flex,
+        %flex-md-column,
+        %align-items-center,
+        %justify-content-center;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+        position: sticky;
+        top: 2rem;
+
+        @include make-transition(top);
+
+        @at-root body:not(.nav-hide):not(.nav-hidden) #{&} {
+            top: header-height() + 2rem;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        @at-root body:not(.nav-hide):not(.nav-hidden) #{&} {
+            top: header-height("md") + 2rem;
+        }
+    }
+
+    > li {
+        &:not(:last-child) {
+            @include media-breakpoint-up(md) {
+                margin-bottom: 1.5rem;
+            }
+
+            @include media-breakpoint-down(sm) {
+                margin-right: 1.5rem;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include hover() {
+                .sticky-sharing__back {
+                    color: $ad-secondary;
+                }
+
+                a:not(.sticky-sharing__back) {
+                    color: $ad-light;
+                    background-color: $ad-primary;
+                    border-color: $ad-primary;
+                }
+            }
+        }
+    }
+
+    a {
+        color: $ad-primary;
+    }
+
+    &__back {
+        i {
+            margin-right: 1rem;
+        }
+        @include make-transition(color);
+    }
+
+    a:not(.sticky-sharing__back) {
+        @extend %d-flex, %justify-content-center, %align-items-center;
+        width: 4.5rem;
+        height: 4.5rem;
+        border: solid 0.1rem $ad-l-dark;
+        border-radius: 100%;
+        background-color: transparent;
+
+        @include make-transition(border-color color background-color);
+    }
+}

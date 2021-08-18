@@ -1,0 +1,14 @@
+@mixin collapse-button($theme, $theme-hover) {
+    color: $theme;
+    @include make-transition(color);
+
+    @include media-breakpoint-up(lg) {
+        @include hover() {
+            color: $theme-hover;
+        }
+    }
+
+    &[aria-expanded="true"] {
+        color: $theme-hover;
+    }
+}

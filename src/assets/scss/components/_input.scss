@@ -1,0 +1,261 @@
+%base-common-input {
+    min-height: 3.5rem;
+    height: auto;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $ad-dark;
+
+    &:focus {
+        color: $ad-dark;
+    }
+}
+
+%base-input {
+    @extend %base-common-input;
+    border-radius: 0;
+    border: none;
+}
+
+%base-input-lg {
+    min-height: 5rem;
+    font-size: 1.6rem;
+    padding: 1.5rem 2rem;
+}
+
+%input-container-no-row {
+    .input-container {
+        > .row {
+            > [class*="col-"] {
+                margin-bottom: 0;
+            }
+        }
+
+        .input-main-lg,
+        .textarea-main-lg,
+        .select-main-lg,
+        .g-recaptcha {
+            margin-bottom: 2rem;
+        }
+
+        .check-main {
+            margin-bottom: 0.5rem;
+            &:only-of-type,
+            &:last-of-type {
+                margin-bottom: 2rem;
+            }
+
+            + .btn-container {
+                margin-top: 2rem;
+            }
+        }
+
+        .btn-container {
+            [class*="btn-"] {
+                margin-bottom: 0;
+            }
+
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+.input {
+    &-container {
+        &--bg {
+            @extend .input-container;
+            padding: 3rem;
+            background-color: $ad-l-primary;
+            color: $white;
+
+            @include media-breakpoint-up(md) {
+                padding: 6rem;
+            }
+        }
+
+        .row {
+            [class*="col-"] {
+                margin-bottom: 2rem;
+            }
+
+            @include media-breakpoint-down(md) {
+                &:last-child [class*="col-"]:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &-filter-container {
+        @extend %d-flex,
+            %flex-wrap,
+            %justify-content-between,
+            %align-items-center;
+
+        > * {
+            @include media-breakpoint-up(md) {
+                margin-bottom: 4rem;
+            }
+
+            @include media-breakpoint-down(md) {
+                &:not(:last-child) {
+                    margin-bottom: 1rem;
+                }
+
+                &:last-child {
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+
+    &-group {
+        position: relative;
+
+        &--search {
+            @extend .input-group;
+
+            @include media-breakpoint-up(md) {
+                &:not(:only-child) {
+                    max-width: 30rem;
+                }
+            }
+
+            i {
+                position: absolute;
+                top: 50%;
+                right: 1.5rem;
+                transform: translateY(-50%);
+                z-index: 10;
+                color: $ad-primary;
+            }
+
+            .input {
+                &-search {
+                    @include input-rounded(2rem);
+                    background-color: $ad-light;
+                    border-color: $ad-primary;
+
+                    &--full {
+                        @include input-rounded(5rem);
+                        min-height: 5rem;
+                        background-color: $ad-light;
+                        border-color: $ad-primary;
+                    }
+                }
+            }
+        }
+    }
+
+    &-main {
+        @extend %base-input;
+
+        &-lg {
+            @extend %base-input, %base-input-lg;
+        }
+    }
+}
+
+.form-check {
+    @extend %position-relative;
+
+    input[type="checkbox"] {
+        display: none;
+        height: 0;
+
+        &:checked {
+            + label {
+                &::before {
+                    background-color: $ad-primary;
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+
+        + label {
+            cursor: pointer;
+            margin-left: -2em;
+            padding-left: 4rem;
+
+            &::before,
+            &::after {
+                position: absolute;
+                top: 0.4rem;
+                left: 0;
+                cursor: pointer;
+            }
+
+            &::before {
+                content: "";
+                width: 2rem;
+                height: 2rem;
+                background-color: $white;
+
+                @include make-transition(background-color);
+            }
+
+            &::after {
+                opacity: 0;
+                font-size: 2rem;
+                color: $white;
+                @include fontawesome-icon(f00c);
+                @include make-transition(opacity);
+            }
+        }
+    }
+}
+
+.textarea-main {
+    @extend %base-input;
+
+    &-lg {
+        @extend %base-input, %base-input-lg;
+    }
+}
+
+.select-main {
+    position: relative;
+
+    &::before {
+        @include fontawesome-icon(f0d7, 700);
+        color: $ad-dark;
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+    }
+
+    select {
+        @extend %base-input;
+        padding-right: 5rem;
+
+        /* for Firefox */
+        -moz-appearance: none;
+        /* for Chrome */
+        -webkit-appearance: none;
+
+        &::-ms-expand {
+            display: none;
+        }
+
+        option {
+            color: $ad-dark;
+        }
+    }
+
+    &.select--trans {
+        select {
+            color: rgba($ad-dark, 0.7);
+        }
+    }
+
+    &-lg {
+        @extend .select-main;
+
+        select {
+            @extend %base-input-lg;
+        }
+    }
+}

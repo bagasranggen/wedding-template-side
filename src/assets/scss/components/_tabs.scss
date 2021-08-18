@@ -1,0 +1,14 @@
+tabs {
+    @at-root .vertical-#{&} {
+        @extend %justify-content-center;
+        @include adjust-spacing-row(4rem);
+
+        h3 {
+            color: $ad-primary;
+        }
+
+        .figure-caption {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,98 @@
+@include media-breakpoint-down(sm) {
+    %margin-top-max {
+        margin-top: $max !important;
+    }
+
+    %margin-bottom-max {
+        margin-bottom: $max !important;
+    }
+}
+
+@mixin make-margin($direction, $value) {
+    @if ($direction == "t") {
+        margin-top: $value;
+    }
+    @if ($direction == "b") {
+        margin-bottom: $value;
+    }
+}
+
+@mixin make-spacing-y($space, $direction, $type: "positive") {
+    // $dir: if($direction == "bottom", "b", $direction);
+    $t: if($type == "positive", "", "-");
+
+    @for $i from 1 through $space {
+        // %m#{$direction}-#{$t}#{$i} {
+        //     @include make-margin($direction, #{$t}#{$i}rem);
+        // }
+
+        // @if $i < 6 {
+        //     .m#{$direction}-#{$t}#{$i} {
+        //         @include make-margin($direction, #{$t}#{$i}rem);
+        //     }
+
+        //     .m#{$direction}-#{$t}#{$i}-5 {
+        //         @include make-margin($direction, #{$t}#{$i + 0.5}rem);
+        //     }
+        // }
+
+        @if ($type == "positive" and $i >= 6) {
+            // @if ($direction != "left" and $direction != "right") {
+            // .m#{$direction}-#{$i} {
+            //     @if ($direction == "t") {
+            //         @extend %margin-top-max;
+            //     } @else {
+            //         @extend %margin-bottom-max;
+            //     }
+            // }
+
+            @each $breakpoint in map-keys($grid-breakpoints) {
+                // $y: if($direction == "bottom", "b", "t");
+                $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+                .m#{$direction}-#{$i} {
+                    @if ($direction == "t") {
+                        @extend %margin-top-max;
+                    }
+                    @if ($direction == "b") {
+                        @extend %margin-bottom-max;
+                    }
+                }
+            }
+
+            // @include media-breakpoint-up(md) {
+            //     .m#{$direction}-#{$i} {
+            //         @include make-margin($direction, #{$i}rem);
+            //     }
+            // }
+            // // }
+        }
+    }
+}
+
+@mixin padding-col($bp, $col: 1, $type: "x", $in-container: false) {
+    $col: if($col > 1, single-col($bp) * $col, single-col($bp));
+    $extra: if($in-container == false, 15px, 0);
+
+    @if ($type == "l") {
+        padding-left: $col + $extra;
+    } @else if ($type == "r") {
+        padding-right: $col + $extra;
+    } @else {
+        padding-left: $col + $extra;
+        padding-right: $col + $extra;
+    }
+}
+
+@mixin margin-col($bp, $col: 1, $type: "x") {
+    $col: if($col > 1, single-col($bp) * $col, single-col($bp));
+
+    @if ($type == "l") {
+        margin-left: $col;
+    } @else if ($type == "r") {
+        margin-right: $col;
+    } @else {
+        margin-left: $col;
+        margin-right: $col;
+    }
+}

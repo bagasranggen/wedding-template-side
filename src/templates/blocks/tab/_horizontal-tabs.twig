@@ -1,0 +1,53 @@
+{% set item = 3 %}
+{% set tab_id = 'horizontal_tab' %}
+
+<div class="mt-8 mb-8 horizontal-tabs">
+
+	<div class="mb-3 mb-md-6">
+
+		<ul class="d-none d-md-flex nav list-nav-tab--horizontal" id="" role="tablist">
+
+			{% for i in 1..item %}
+				<li role="presentation">
+					<a class="{{ (loop.first) ? 'active' }}" data-bs-toggle="tab" role="tab" href="#{{ tab_id ~ '_' ~ loop.index}}_tab" aria-controls="{{ tab_id ~ '_' ~ loop.index}}_tab" aria-selected="{{ (loop.first) ? 'true' : 'false' }}">
+						Tab
+						{{ loop.index }}
+					</a>
+				</li>
+			{% endfor %}
+
+		</ul>
+
+		<div class="d-md-none dropdown">
+			<button class="btn-primary" type="button" id="{{ tab_id }}_button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span></span>
+				<i class="far fa-chevron-down"></i>
+			</button>
+			<div class="dropdown-menu" aria-labelledby="{{ tab_id }}_button">
+
+				<div class="nav flex-column" role="tablist">
+					{% for i in 1..item %}
+						<a class="dropdown-item" data-bs-toggle="tab" role="tab" href="#{{ tab_id ~ '_' ~ loop.index}}_tab" aria-controls="{{ tab_id ~ '_' ~ loop.index}}_tab" aria-selected="{{ (loop.first) ? 'true' : 'false' }}">
+							Tab
+							{{ loop.index }}
+						</a>
+					{% endfor %}
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="tab-content">
+		{% for i in 1..item %}
+			<div class="tab-pane fade{{ (loop.first) ? ' show active' }}" id="{{ tab_id ~ '_' ~ loop.index}}_tab" role="tabpanel" aria-labelledby="{{ tab_id ~ '_' ~ loop.index}}_tab">
+				<div class="pb-text-block">
+					<h4>Lorem ipsum dolor sit amet consectetur.</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nobis veritatis quidem dolor delectus animi qui voluptatem totam ipsam quod labore ea explicabo asperiores dignissimos inventore perferendis iste, odio ut.</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+</div>

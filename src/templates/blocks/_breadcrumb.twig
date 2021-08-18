@@ -1,0 +1,13 @@
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		{% for bread in breadcrumb %}
+			{% if not loop.last %}
+				<li class="breadcrumb-item">
+					<a href="{{ bread.link }}">{{ bread.label }}</a>
+				</li>
+			{% else %}
+				<li class="breadcrumb-item active" aria-current="page">{{ bread.label }}</li>
+			{% endif %}
+		{% endfor %}
+	</ol>
+</nav>

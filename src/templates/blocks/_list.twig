@@ -1,0 +1,11 @@
+{# {% set users = [
+  {
+    username: 'Bagas Ranggen'
+  }
+] %} #}
+
+<ul class="{{ margin ?? margin ~ ' ' }}">
+  {% for user in users %}
+    <li>{{ user.username|e }} {{ user.cat }}</li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,31 @@
+.hamburger {
+    .line {
+        width: 25px;
+        height: 2px;
+        background-color: #000;
+        display: block;
+        margin: 5px auto;
+        padding-bottom: 0 !important;
+        @include make-transition(transform, $time: .2s)
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.navbar-toggler[aria-expanded="true"] .line {
+    &:nth-child(2) {
+        opacity: 0;
+    }
+
+    &:nth-child(1) {
+        -webkit-transform: translateY(7px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    &:nth-child(3) {
+         -webkit-transform: translateY(-7px) rotate(-45deg);
+         transform: translateY(-7px) rotate(-45deg);
+    }
+}

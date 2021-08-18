@@ -1,0 +1,60 @@
+%breadcrumb-light {
+    a,
+    .breadcrumb-item.active,
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: $white;
+    }
+}
+
+.breadcrumb {
+    @extend %flex-nowrap, %mb-0, %position-relative;
+    // padding: 1rem 0;
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+    max-width: 100%;
+    z-index: 10;
+
+    a,
+    .breadcrumb-item.active,
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: $ad-primary;
+        @include make-transition(color);
+    }
+
+    &-item {
+        white-space: nowrap;
+
+        &:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        + .breadcrumb-item {
+            padding-left: 1rem;
+
+            &::before {
+                // float: none;
+                // content: "\f054";
+                font-family: "Font Awesome 5 Pro";
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                // display: inline-block;
+                // font-style: normal;
+                // font-variant: normal;
+                // text-rendering: auto;
+                // line-height: 1;
+                // font-size: 0.7rem;
+                padding-right: 1rem;
+                // position: relative;
+                // top: -0.2rem;
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            &:hover a {
+                color: $ad-secondary;
+            }
+        }
+    }
+}

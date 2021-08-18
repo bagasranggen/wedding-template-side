@@ -1,0 +1,18 @@
+<div class="carousel-text">
+	{% for i in 1..4 %}
+		<div class="row carousel-text__item">
+			<div class="col-xl-7">
+				<picture>
+					<source srcset="https://picsum.photos/id/1000/600" media="(min-width: 992px)">
+					<source srcset="https://picsum.photos/id/1000/800/500" media="(min-width: 576px)">
+					<img src="https://picsum.photos/id/1000/400" alt="" class="img-fluid">
+				</picture>
+			</div>
+			<div class="col-xl-5 carousel-text__text">
+				<div class="carousel-text__text-box">
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

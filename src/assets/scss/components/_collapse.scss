@@ -1,0 +1,14 @@
+.collapse-main {
+    [data-toggle="collapse"] {
+        display: block;
+        @include collapse-button($ad-dark, $ad-secondary);
+    }
+
+    .collapse {
+        &__content {
+            @extend %shadow-sm;
+            padding: 1.5rem 2rem;
+            background-color: $white;
+        }
+    }
+}

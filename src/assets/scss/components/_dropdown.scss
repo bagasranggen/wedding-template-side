@@ -1,0 +1,86 @@
+.dropdown-main {
+    .btn {
+        @extend %d-inline-flex, %justify-content-between, %text-start;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: $ad-primary;
+
+        span {
+            text-transform: lowercase;
+        }
+
+        i {
+            margin-left: 1rem;
+        }
+    }
+
+    .dropdown {
+        &-menu {
+            background-color: $ad-secondary;
+            min-width: 25rem;
+            border: none;
+            border-radius: 0;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        &-item {
+            color: $white;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding-left: 2rem;
+            padding-right: 2rem;
+
+            @include hover-focus-active() {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.horizontal-tabs,
+.vertical-tabs {
+    .dropdown {
+        &-menu {
+            width: 100%;
+            background-color: $ad-primary;
+            margin-top: 0;
+            border: none;
+            border-radius: 0;
+            transform: none !important;
+            top: 100% !important;
+            max-height: 50vh;
+            overflow: auto;
+        }
+
+        &-item {
+            color: $white;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            font-size: 1.3rem;
+
+            &.active {
+                background-color: $ad-primary;
+            }
+        }
+
+        [class*="btn-"] {
+            @extend %d-flex;
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+
+            i {
+                margin-left: auto;
+            }
+        }
+
+        h4 {
+            font-size: 1.8rem;
+            padding: 1.5rem 2rem 0rem;
+            color: $white;
+        }
+    }
+}

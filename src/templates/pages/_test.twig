@@ -1,0 +1,18 @@
+{% extends './layout/_base.twig' %}
+
+{% block content %}
+
+	<div class="container">
+		<h1>
+			Test
+		</h1>
+		<p class="important">
+			Welcome to my awesome homepage.
+		</p>
+
+		{% set margin = 'mb-5' %}
+		{% include './blocks/_list.twig' %}
+	</div>
+
+
+{% endblock %}

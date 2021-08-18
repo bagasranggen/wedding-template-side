@@ -1,0 +1,118 @@
+%base-carousel {
+    .slick {
+        &-arrow {
+            position: absolute;
+            cursor: pointer;
+
+            @include make-transition(opacity);
+
+            &.slick-disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+%base-carousel-overflow {
+    @extend %base-carousel;
+    overflow: hidden;
+
+    .slick {
+        &-list {
+            overflow: visible;
+        }
+    }
+}
+
+%custom-slick-dots {
+    li {
+        button {
+            border: solid 0.1rem $ad-primary;
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+
+            @include make-transition(border-color background-color);
+
+            &::before {
+                content: none;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include hover-focus() {
+                button {
+                    background-color: $ad-l-primary;
+                }
+            }
+        }
+
+        &.slick-active {
+            button {
+                background-color: $ad-primary;
+            }
+        }
+    }
+}
+
+.carousel {
+    &-container {
+        .slick {
+            &-list {
+                margin-right: -1.5rem;
+                margin-left: -1.5rem;
+
+                // @include media-breakpoint-up(sm) {
+                //     margin-right: -1rem;
+                //     margin-left: -1rem;
+                // }
+
+                @include media-breakpoint-up(lg) {
+                    margin-right: -3rem;
+                    margin-left: -3rem;
+                }
+            }
+
+            &-slide {
+                margin-right: 1.5rem;
+                margin-left: 1.5rem;
+
+                // @include media-breakpoint-up(sm) {
+                //     margin-right: 1rem;
+                //     margin-left: 1rem;
+                // }
+
+                @include media-breakpoint-up(lg) {
+                    margin-right: 3rem;
+                    margin-left: 3rem;
+                }
+            }
+        }
+    }
+
+    &-text {
+        &__item {
+            @extend %d-flex, %flex-wrap, %no-gutters;
+            // @include adjust-spacing-row(.5rem);
+
+            &:nth-child(odd) {
+                @extend %flex-row-reverse;
+            }
+
+            &:nth-child(even) {
+                .carousel-text__text {
+                    @extend %align-self-end;
+                }
+            }
+        }
+
+
+        &__text-box {
+            padding: 1.5rem 2rem;
+            background-color: $wd-dark;
+            color: $wd-light;
+        }
+    }
+}

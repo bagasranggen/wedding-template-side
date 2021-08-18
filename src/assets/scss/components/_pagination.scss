@@ -1,0 +1,30 @@
+.pagination {
+    @extend %justify-content-center;
+    // padding-left: 0 !important;
+    margin-top: 3rem;
+
+    @include media-breakpoint-up(md) {
+        margin-top: 4rem;
+    }
+
+    .page {
+        &-link {
+            @extend %text-uppercase;
+            // background-color: transparent;
+            // border: none;
+            // color: $ad-primary;
+            font-weight: 500;
+            @include make-transition(color);
+
+            // @include media-breakpoint-up(lg) {
+            //     @include hover() {
+            //         color: $ad-secondary;
+            //     }
+            // }
+
+            // &.active {
+            //     color: $ad-secondary;
+            // }
+        }
+    }
+}

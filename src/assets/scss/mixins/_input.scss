@@ -1,0 +1,5 @@
+@mixin input-rounded($radius) {
+    @extend %base-common-input;
+    border-radius: $radius !important;
+    padding-right: 4rem;
+}

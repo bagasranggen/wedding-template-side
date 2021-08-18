@@ -1,0 +1,42 @@
+.accordion {
+    a[data-bs-toggle="collapse"] {
+        @extend %d-flex, %align-items-center, %position-relative;
+        width: fit-content;
+        width: -moz-fit-content;
+        padding-right: 3.5rem;
+
+        h4 {
+            @extend %mb-0;
+        }
+
+        h4,
+        &::before {
+            color: $ad-primary;
+        }
+
+        &::before {
+            @extend %position-absolute;
+            @include make-transition(transform);
+            @include fontawesome-icon("\f078", 600);
+            right: 0;
+            top: 0.5rem;
+        }
+
+        &[aria-expanded="true"]::before {
+            transform: rotate(180deg);
+        }
+    }
+
+    .accordion {
+        &__item {
+            &:not(:last-child) {
+                @extend %mb-2;
+            }
+        }
+
+        &__content {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+}
