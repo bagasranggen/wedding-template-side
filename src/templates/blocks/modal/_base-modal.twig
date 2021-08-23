@@ -1,7 +1,8 @@
 <div class="modal fade{{ modal_add_css ? ' ' ~ modal_add_css }}" id="{{ modal_id }}" data-bs-keyboard="true" tabindex="-1" aria-labelledby="{{ modal_id }}_label" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+	<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header">
+				<h3 class="modal-title">{{ modal_title }}</h3>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div
@@ -12,10 +13,6 @@
 				{# End Modal Content #}
 
 			</div>
-			{# <div class="modal-footer">
-													<button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
-													<button type="button" class="btn-primary">Understood</button>
-												</div> #}
 		</div>
 	</div>
 </div>

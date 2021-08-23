@@ -1,5 +1,24 @@
 {% extends './layout/_base.twig' %}
 
+{% set mobile_nav = [
+	{
+		link: '#',
+		icon: '<i class="fal fa-home-heart"></i>'
+	},
+	{
+		link: '#bridegroom',
+		icon: '<i class="fal fa-rings-wedding"></i>'
+	},
+	{
+		link: '#location',
+		icon: '<i class="fal fa-map-marked-alt"></i>'
+	},
+	{
+		link: '#gallery',
+		icon: '<i class="fal fa-image-polaroid"></i>'
+	}
+] %}
+
 {% block content %}
 
 	<div class="container-fluid full-page">
@@ -18,21 +37,138 @@
 			</div>
 			<div class="col-lg-6 col-xxl-5 full-page__content">
 
-				<div class="mb-8 full-page__carousel">
+				<div class="mb-8 full-page__alternate" id="bridegroom">
+					<h2>Lorem ipsum dolor sit.</h2>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, repudiandae! Id dolorum nesciunt, hic autem error possimus ea.</p>
+					{% include './blocks/_alternate-images.twig' %}
+				</div>
+
+				<div class="mb-8 content--full-size full-page__quotes">
+					<div class="row heading-border">
+						<div class="col"><hr></div>
+						<div class="col-auto">
+							<h2>Quotes</h2>
+						</div>
+						<div class="col"><hr></div>
+					</div>
+					<blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo laboriosam qui ipsa rerum explicabo totam laudantium quibusdam quidem adipisci labore!</blockquote>
+				</div>
+
+				<div class="mb-8" id="location">
+					{% include './blocks/card/_card-horizontal.twig' %}
+				</div>
+
+				<div class="mb-8">
+					<div class="row alternate-images--offset">
+						<div class="col-11">
+							<div class="alternate-images__count oly--40">
+								<h2>Menuju Hari Bahagia</h2>
+								<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+							</div>
+						</div>
+						<div class="col-11">
+							<div class="alternate-images__hope oly--40">
+								<h2>Mimpi Kami</h2>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste.</p>
+								<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate, ipsa in, numquam voluptatem delectus quibusdam saepe aliquid aliquam unde officiis libero sint! Vero debitis corporis nisi eligendi obcaecati libero quibusdam!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-8 full-page__carousel" id="gallery">
 					<h2>Gallery</h2>
 					{% include './blocks/carousel/_carousel-text.twig' %}
 				</div>
 
-				<div class="my-8 full-page__location">
-					<h2>Location</h2>
-					<div class="ratio ratio-16x9">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15813.792061123524!2d110.4142924!3d-7.74221105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f7e53e164e1217e!2sMitro%20kopi%20jogja!5e0!3m2!1sen!2sid!4v1629300849371!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+				<div class="content--full-size full-page__footer">
+					<div class="row">
+						<div class="col-12">
+							<div class="card__box">
+								<h2>Protokol Kesehatan</h2>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, eius accusantium corrupti quasi accusamus possimus architecto? Rerum dignissimos aperiam fuga nemo numquam asperiores qui harum expedita veniam sed, sequi beatae.</p>
+								<div class="mb-3 row row-cols-lg-3">
+									<div class="col">
+										<div class="icon__wrapper">
+											<i class="fal fa-head-side-mask"></i>
+										</div>
+									</div>
+									<div class="col">
+										<div class="icon__wrapper">
+											<i class="fal fa-people-arrows"></i>
+										</div>
+									</div>
+									<div class="col">
+										<div class="icon__wrapper">
+											<i class="fal fa-hands-wash"></i>
+										</div>
+									</div>
+								</div>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ab id cumque obcaecati culpa nemo error sunt harum recusandae hic iusto blanditiis autem aliquid aliquam maiores quae? Modi, fuga ipsum.
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="card__box">
+
+								<div class="row heading-border">
+									<div class="col"><hr></div>
+									<div class="col-auto">
+										<h2>RSVP</h2>
+									</div>
+									<div class="col"><hr></div>
+								</div>
+
+								<p>Mohon konfirmasi kehadiran dengan mengisi form di bawah ini:</p>
+
+								<form action="">
+									<div class="form-floating mb-2">
+										<input type="text" class="form-control" id="rsvp_name" placeholder="John Doe">
+										<label for="rsvp_name">Nama</label>
+									</div>
+									<div class="form-floating mb-2">
+										<input type="number" class="form-control" id="rsvp_total" placeholder="2">
+										<label for="rsvp_total">Jumlah</label>
+									</div>
+									<div class="form-floating mb-2">
+										<textarea class="form-control" id="rsvp_message" placeholder="Salam &amp; Doa Untuk Mempelai"></textarea>
+										<label for="rsvp_message">Salam &amp; Doa Untuk Mempelai</label>
+									</div>
+									<div class="form-floating mb-2">
+										<select class="form-select" id="rsvp_present" aria-label="Apakah Anda Akan Hadir?">
+											<option disabled selected>-- Pilih salah satu --</option>
+											<option value="1">Ya</option>
+											<option value="2">Tidak</option>
+										</select>
+										<label for="rsvp_present">Apakah Anda Akan Hadir?</label>
+									</div>
+									<button type="submit" class="btn--primary">Send</button>
+								</form>
+
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto aspernatur tenetur esse quo perspiciatis minus perferendis iure enim, quasi doloribus suscipit eaque, sint deserunt corporis! Cupiditate accusantium, quia praesentium in obcaecati repellat consequatur provident porro repellendus eveniet ratione aperiam laudantium nulla saepe minus odio commodi veniam voluptas voluptatem, deserunt nobis nisi reprehenderit blanditiis sunt? Quibusdam reprehenderit perspiciatis voluptatibus soluta libero quidem itaque, dolore molestias voluptatum eaque totam quam recusandae exercitationem pariatur sapiente sequi sit molestiae vel eveniet quae neque voluptatem fugiat quas. Dignissimos praesentium quam asperiores optio! Ipsa nobis cupiditate quas nihil odit tempore? Reprehenderit, fuga nostrum ea sequi similique itaque accusamus veniam dolores sint dicta facere neque voluptatem inventore repellendus quaerat at cumque laboriosam aliquam rem laborum? Animi aspernatur tenetur maxime quaerat. Neque minus hic nulla maxime alias porro beatae iure, delectus voluptatem optio dolor explicabo quod asperiores eius magni ratione ea temporibus doloribus quis? Quas natus, molestias delectus blanditiis animi minus at quod amet itaque assumenda excepturi ex similique, unde maiores expedita, neque repellendus sapiente optio minima illum? Necessitatibus suscipit labore dolores, ipsa consectetur doloribus perspiciatis voluptates nisi cumque voluptate non maiores, accusantium totam velit beatae perferendis molestiae sequi tempore maxime atque laudantium? Eos atque quisquam obcaecati maxime?</p>
+				{# <div class="my-8 full-page__location">
+																																																																																																																																																																																																																																																																																																					<h2>Location</h2>
+																																																																																																																																																																																																																																																																																																					<div class="ratio ratio-16x9">
+																																																																																																																																																																																																																																																																																																						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15813.792061123524!2d110.4142924!3d-7.74221105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f7e53e164e1217e!2sMitro%20kopi%20jogja!5e0!3m2!1sen!2sid!4v1629300849371!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+																																																																																																																																																																																																																																																																																																					</div>
+																																																																																																																																																																																																																																																																																																				</div> #}
 
 			</div>
+		</div>
+
+		<div class="full-page__mobile-nav">
+			<ul class="">
+				{% for mobile in mobile_nav %}
+					<li>
+						<a href="{{ mobile.link }}">
+							{{ mobile.icon|raw }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
 		</div>
 	</div>
 

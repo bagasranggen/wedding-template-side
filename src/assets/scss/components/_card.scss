@@ -1,0 +1,104 @@
+%base-card {
+    background-color: $white;
+    border-radius: 0.5rem;
+    border: solid 0.1rem rgba($wd-primary, 0.25);
+    box-shadow: 0 0 1rem 0.5rem rgba($wd-primary, 0.15);
+}
+
+.card {
+    &__box {
+        @extend %base-card, %text-center;
+        padding: 1.5rem;
+
+        @include media-breakpoint-up(sm) {
+            padding: 3rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: 1.5rem;
+        }
+    }
+
+    &--horizontal {
+        $card-offset: 78%;
+        $card-animation: 0.25s;
+        // $card-offset: 0;
+        @extend %position-relative, %flex-lg-nowrap, %align-items-lg-center;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: -3rem;
+
+            > [class*="col-"] {
+                margin-top: 3rem;
+            }
+        }
+
+        .card {
+            &__item {
+                z-index: 3;
+                transition: transform $card-animation ease-in-out,
+                    z-index $card-animation ($card-animation/2) ease-in-out;
+
+                @include hover() {
+                    @include media-breakpoint-up(lg) {
+                        @include make-transition(transform, $card-animation);
+                        transform: translateX(0) !important;
+                        z-index: 10;
+                    }
+                }
+
+                @include media-breakpoint-up(lg) {
+                    &.active {
+                        @include make-transition(transform, $card-animation);
+                        transform: translateX(0) !important;
+                        z-index: 10;
+                    }
+                }
+
+                .row {
+                    @extend %align-items-lg-center;
+                }
+
+                i {
+                    color: $wd-primary;
+                    font-size: 6rem;
+
+                    @include media-breakpoint-up(md) {
+                        font-size: 8rem;
+                    }
+                }
+
+                &:nth-child(odd) {
+                    @include media-breakpoint-up(lg) {
+                        transform: translateX(-$card-offset);
+                    }
+
+                    .row {
+                        @extend %flex-lg-row-reverse;
+                    }
+                }
+
+                &:nth-child(even) {
+                    @include media-breakpoint-up(lg) {
+                        transform: translateX($card-offset);
+                        position: relative;
+                        left: -100%;
+                    }
+                }
+            }
+
+            &__title {
+                @extend %mb-0;
+            }
+
+            &__date {
+                margin-bottom: 2.5rem;
+                text-transform: uppercase;
+
+                > p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

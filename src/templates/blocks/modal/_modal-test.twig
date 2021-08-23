@@ -1,8 +1,11 @@
 {% extends './blocks/modal/_base-modal.twig' %}
 
-{% set modal_id = 'modal_test' %}
+{% set modal_id = 'modal_location' %}
+{% set modal_title = 'Lookasi' %}
 {# {% set modal_add_css = 'show d-block' %} #}
 
 {% block modal_content %}
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quia magni vero ea autem? Pariatur odio, cupiditate molestiae voluptas sapiente, quasi aspernatur non totam nobis delectus ullam laudantium, possimus facilis!</p>
+	<div class="modal-map ratio ratio-16x9">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15813.792061123524!2d110.4142924!3d-7.74221105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f7e53e164e1217e!2sMitro%20kopi%20jogja!5e0!3m2!1sen!2sid!4v1629300849371!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+	</div>
 {% endblock %}

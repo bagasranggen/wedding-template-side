@@ -1,40 +1,21 @@
 %base-button {
-    @extend %ff-poppins, %justify-content-center, %align-items-center;
-    border-radius: 0;
-    font-size: 1.4rem;
-    font-weight: 500;
+    @extend %justify-content-center, %align-items-center;
+    font-size: 1.6rem;
+    // font-weight: 500;
     width: fit-content;
     width: -moz-fit-content;
 }
 
 %btn-base-padding {
-    padding: 1rem 3rem;
+    padding: 0.75rem 3rem;
 }
 
-%btn-back {
-    color: $ad-primary;
-    @include focus-active() {
-        color: $ad-secondary;
-    }
-
-    i {
-        margin-right: 1rem;
-    }
-
-    @include make-transition(color);
-    @include media-breakpoint-up(lg) {
-        @include hover() {
-            color: $ad-secondary;
-        }
-    }
-}
-
-//
 // Base styles
 //
 
 .btn {
-    display: inline-block;
+    @extend %base-button, %btn-base-padding, %d-inline-flex;
+    // display: inline-block;
     font-family: $btn-font-family;
     font-weight: $btn-font-weight;
     line-height: $btn-line-height;
@@ -47,12 +28,12 @@
     user-select: none;
     background-color: transparent;
     border: $btn-border-width solid transparent;
-    @include button-size(
-        $btn-padding-y,
-        $btn-padding-x,
-        $btn-font-size,
-        $btn-border-radius
-    );
+    // @include button-size(
+    //     // $btn-padding-y,
+    //     // $btn-padding-x,
+    //     $btn-font-size,
+    //     $btn-border-radius
+    // );
     @include transition($btn-transition);
 
     &:hover {
@@ -87,8 +68,6 @@
 }
 
 .btn {
-    @extend %base-button, %btn-base-padding;
-
     &-container {
         &.text-right [class*="btn-"],
         [class*="btn-"]:not(:last-child) {
@@ -100,7 +79,7 @@
         }
     }
 
-    &-back {
-        @extend %btn-back;
+    &--primary {
+        @include btn-oval($wd-primary);
     }
 }

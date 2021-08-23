@@ -1,0 +1,14 @@
+@mixin btn-oval($bg, $text: null) {
+    @extend .btn;
+    border-radius: 3rem;
+    background-color: $bg;
+    color: if($text == null, $white, $text) !important;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(lg) {
+        @include hover() {
+            background-color: lighten($bg, 8);
+            color: if($text == null, $white, $text) !important;
+        }
+    }
+}

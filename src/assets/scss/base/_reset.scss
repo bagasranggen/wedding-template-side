@@ -92,3 +92,15 @@ a:hover {
 a:focus {
     outline: 0 !important;
 }
+
+.ratio-16x9 {
+    @include media-breakpoint-down(md) {
+        --bs-aspect-ratio: 50%;
+    }
+}
+
+.form-floating {
+    textarea {
+        height: $form-floating-textarea-height !important;
+    }
+}

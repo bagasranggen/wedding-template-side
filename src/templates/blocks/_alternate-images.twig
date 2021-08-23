@@ -1,0 +1,37 @@
+{% set grooms = [
+	{
+		name: 'Toni',
+		full_name: 'Toni Stark',
+		gender: 'Putra',
+		parents: 'Bapak Romeo & Inu Juliet'
+	},
+	{
+		name: 'Fatimah',
+		full_name: 'Fatimah Stark',
+		gender: 'Putri',
+		parents: 'Bapak Romeo & Inu Juliet'
+	},
+] %}
+
+<div class="row alternate-images">
+	{% for groom in grooms %}
+		<div class="col-md-10 alternate-images__item">
+			<div class="row justify-content-center">
+				<div class="col-6 col-md-5">
+					<picture class="alternate-images__img">
+						<img src="https://picsum.photos/id/1000/400" alt="" class="img-fluid ">
+					</picture>
+				</div>
+				<div class="col-md-7">
+					<div class="alternate-images__text">
+						<h3>{{ groom.name }}</h3>
+						<p class="alternate-images__full-name">{{ groom.full_name }}</p>
+						<p>{{ groom.gender }}
+							dari pasangan</p>
+						<p>{{ groom.parents }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

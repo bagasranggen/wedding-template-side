@@ -1,66 +1,149 @@
 .full-page {
-	// background-color: red;
+    $mobile-nav: 5.5rem;
 
-	&__bg {
-		@extend %d-flex, %justify-content-center, %align-items-center;
-		padding: 6rem !important;
-		background-image: url($hero-image);
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center center;
+    @include media-breakpoint-down(lg) {
+        padding-bottom: $mobile-nav - 0.1rem;
+    }
 
-		@include media-breakpoint-up(lg) {
-			position: -webkit-sticky;
-			position: sticky;
-			height: 100vh;
-			top: 0;
-		}
-	}
+    &__bg {
+        @extend %d-flex, %justify-content-center, %align-items-center;
+        padding: 6rem !important;
+        background-image: url($hero-image);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
 
-	&__heading {
-		color: $white;
-		text-align: center;
+        @include media-breakpoint-up(lg) {
+            position: -webkit-sticky;
+            position: sticky;
+            height: 100vh;
+            top: 0;
+        }
+    }
 
-		h1 {
-			@extend %ff-fuggles, %mb-2;
-			font-size: 8rem;
-			line-height: 6rem;
+    &__heading {
+        color: $white;
+        text-align: center;
 
-			@include media-breakpoint-up(md) {
-				font-size: 14rem;
-				line-height: 11rem;
-			}
+        h1 {
+            @extend %ff-fuggles, %mb-2;
+            font-size: 8rem;
+            line-height: 6rem;
 
-			span {
-				@extend %d-block;
-			}
-		}
+            @include media-breakpoint-up(md) {
+                font-size: 14rem;
+                line-height: 11rem;
+            }
 
-		p {
-			text-transform: uppercase;
-			letter-spacing: .8rem;
+            span {
+                @extend %d-block;
+            }
+        }
 
-			@include media-breakpoint-up(md) {
-				font-size: 2rem;
-			}
-			
-			&:not(:last-child) {
-				@extend %mb-2;				
-			}
-		}
-	}
+        p {
+            text-transform: uppercase;
+            letter-spacing: 0.8rem;
 
-	&__content {
-		@include media-breakpoint-up(md) {
-			padding: 3rem;
-		}
-		
-		h2 {
-			@extend %mb-3, %text-center;
-		}
-	}
+            @include media-breakpoint-up(md) {
+                font-size: 2rem;
+            }
 
-	&__carousel {
+            &:not(:last-child) {
+                @extend %mb-2;
+            }
+        }
+    }
 
-	}
+    &__content {
+        overflow: hidden;
+
+        @include media-breakpoint-up(md) {
+            padding: 3rem;
+        }
+
+        @include media-breakpoint-down(lg) {
+            margin-top: 4rem;
+        }
+
+        h2 {
+            @extend %mb-3, %text-center;
+        }
+    }
+
+    &__quotes {
+        @extend %text-center;
+        padding: 3rem;
+
+        @include media-breakpoint-up(md) {
+            padding: 6rem;
+        }
+
+        h2 {
+            color: $wd-light;
+        }
+    }
+
+    &__footer {
+        @include media-breakpoint-up(md) {
+            margin-bottom: -3rem;
+        }
+
+        .card {
+            &__box {
+                color: $wd-primary;
+
+                .row {
+                    margin-top: -2rem;
+
+                    > [class*="col"] {
+                        margin-top: 2rem;
+                    }
+                }
+            }
+        }
+
+        > .row {
+            margin-top: -3rem;
+
+            > [class*="col-"] {
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    &__mobile-nav {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background-color: $wd-dark;
+        z-index: 1030;
+
+        ul {
+            @extend %mb-0, %d-flex, %d-lg-none, %justify-content-around;
+            // padding-top: 1rem;
+            // padding-bottom: 1rem;
+            height: $mobile-nav;
+            list-style: none;
+
+            a {
+                color: $wd-light;
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+.icon {
+    &__wrapper {
+        @extend %d-flex, %justify-content-center, %align-items-center, %m-auto;
+        width: 12rem;
+        height: 12rem;
+        border: solid 0.3rem $wd-primary;
+        border-radius: 100%;
+
+        i {
+            font-size: 6rem;
+        }
+    }
 }

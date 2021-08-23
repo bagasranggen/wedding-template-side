@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:sass": "sass --watch src/assets/scss/main.scss:src/assets/css/main.min.css --style compressed",
-    "build:css": "sass src/assets/scss/main.scss:src/assets/css/main.min.css --style compressed"
+    "watch:sass": "sass --watch src/assets/scss/main.scss:src/assets/css/main.min.css --style compressed --quiet",
+    "build:css": "sass src/assets/scss/main.scss:src/assets/css/main.min.css --style compressed",
+    "watch:bootstrap": "sass --watch src/assets/scss/bootstrap.scss:src/assets/css/bootstrap.min.css --style compressed --quiet",
+    "build:bootstrap": "sass src/assets/scss/bootstrap.scss:src/assets/css/bootstrap.min.css --style compressed"
   },
   "author": "",
   "license": "ISC",

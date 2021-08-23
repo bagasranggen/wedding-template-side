@@ -1,0 +1,11 @@
+.heading-border {
+    @extend %mb-3, %align-items-center;
+
+    [class*="col-"] h2 {
+        @extend %mb-0;
+    }
+
+    hr {
+        height: 0.3rem;
+    }
+}

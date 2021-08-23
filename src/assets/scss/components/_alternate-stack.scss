@@ -1,0 +1,108 @@
+.alternate-images {
+    margin-top: -3rem;
+
+    &__item {
+        padding-top: 3rem;
+
+        > .row {
+            @include adjust-spacing-row(0.75rem);
+        }
+
+        &:nth-child(odd) {
+            .alternate-images__text {
+                @extend %mb-7;
+            }
+        }
+
+        &:nth-child(even) {
+            @extend %ms-md-auto, %text-end;
+
+            @include media-breakpoint-up(md) {
+                margin-top: -5rem;
+            }
+
+            > .row {
+                @include media-breakpoint-up(md) {
+                    flex-direction: row-reverse;
+                }
+            }
+
+            [class*="col-"] {
+                &:last-child {
+                    @extend %align-self-md-end;
+                }
+            }
+        }
+    }
+
+    &__img {
+        @extend %d-block;
+        border-radius: 100%;
+        overflow: hidden;
+        box-shadow: 0 0 1rem 0.5rem rgba($color: $wd-primary, $alpha: 0.25);
+    }
+
+    &__text {
+        @include media-breakpoint-down(md) {
+            text-align: center;
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__full-name {
+        font-size: 2.5rem;
+    }
+
+    &--offset {
+        $alternate-offset-spacing: 8rem;
+
+        h2 {
+            color: $white;
+        }
+
+        > [class*="col-"] {
+            &:last-child {
+                margin-top: -$alternate-offset-spacing;
+                margin-left: auto;
+            }
+        }
+
+        .alternate-images {
+            &__count,
+            &__hope {
+                min-height: 30rem;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 2rem 2rem 4rem;
+                color: $white;
+
+                @include media-breakpoint-up(md) {
+                    min-height: 50rem;
+                    padding: 3rem;
+                }
+            }
+
+            &__count {
+                @extend %d-flex,
+                    %flex-column,
+                    %justify-content-end,
+                    %text-center;
+                background-image: url($wd-count);
+                padding-bottom: $alternate-offset-spacing + 3rem;
+
+                h2 {
+                    @extend %mb-8;
+                }
+            }
+
+            &__hope {
+                @extend %text-center;
+                background-image: url($wd-hope);
+            }
+        }
+    }
+}

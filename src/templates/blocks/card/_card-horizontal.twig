@@ -1,0 +1,41 @@
+{% set cards = [
+	{
+		title: 'Akad',
+		icon: '<i class="fal fa-rings-wedding"></i>',
+		date: ['rabu','01 september 2021','pukul 12.00 - selesai'],
+		location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.3742024097496!2d110.40458351463923!3d-7.750075394414193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5976135decc7%3A0xedaa2ee50440320!2sRockstar%20Studio!5e0!3m2!1sen!2sid!4v1629551821772!5m2!1sen!2sid',
+	},
+	{
+		title: 'Resepsi',
+		icon: '<i class="fal fa-glass-cheers"></i>',
+		date: ['rabu','01 september 2021','pukul 18.00 - selesai'],
+		location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15813.792061123524!2d110.4142924!3d-7.74221105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f7e53e164e1217e!2sMitro%20kopi%20jogja!5e0!3m2!1sen!2sid!4v1629300849371!5m2!1sen!2sid'
+	}
+] %}
+
+{# <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.3742024097496!2d110.40458351463923!3d-7.750075394414193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5976135decc7%3A0xedaa2ee50440320!2sRockstar%20Studio!5e0!3m2!1sen!2sid!4v1629551821772!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> #}
+
+<div class="row card--horizontal">
+
+	{% for card in cards %}
+		<div class="col-12 card__item">
+			<div class="card__box">
+				<div class="row">
+					<div class="mb-3 mb-lg-0 col-lg-3">
+						{{ card.icon|raw }}
+					</div>
+					<div class="col">
+						<h2 class="card__title">{{ card.title }}</h2>
+						<div class="card__date">
+							{% for date in card.date %}
+								<p>{{ date }}</p>
+							{% endfor %}
+						</div>
+						<a href="#" class="btn--primary" data-bs-toggle="modal" data-bs-target="#modal_location" data-location={{ card.location }} data-title={{card.title}}>See Location</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+</div>

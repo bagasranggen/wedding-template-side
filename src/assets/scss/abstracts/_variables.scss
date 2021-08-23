@@ -1,21 +1,3 @@
-// Color
-$ad-primary: #153249;
-$ad-l-primary: #476276;
-$ad-secondary: #ff3c00;
-$ad-l-secondary: #f39d7f;
-$ad-tertiary: #99c8c5;
-$ad-d-tertiary: #92b0bf;
-$ad-dark: #2e2e2e;
-$ad-l-dark: #707070;
-$ad-light: #f0f0f0;
-$ad-d-light: #c6c6c6;
-$ad-link-hover: #a73411;
-
-$wd-primary: #DA7F8F;
-$wd-light: #FAF3F3;
-$wd-dark: #A7BBC7;
-$wd-l-dark: #E1E5EA;
-
 // Reset
 $font-size-base: 1.6rem;
 
@@ -60,19 +42,19 @@ $breadcrumb-padding-y: 1rem;
 $breadcrumb-divider: quote("\f054");
 
 // Pagination
-$pagination-bg: transparent;
-$pagination-color: $ad-primary;
-$pagination-border-width: 0;
-$pagination-border-radius: 0;
+// $pagination-bg: transparent;
+// $pagination-color: $ad-primary;
+// $pagination-border-width: 0;
+// $pagination-border-radius: 0;
 
-$pagination-focus-color: $ad-primary;
-$pagination-focus-bg: transparent;
+// $pagination-focus-color: $ad-primary;
+// $pagination-focus-bg: transparent;
 
-$pagination-hover-color: $ad-secondary;
-$pagination-hover-bg: transparent;
+// $pagination-hover-color: $ad-secondary;
+// $pagination-hover-bg: transparent;
 
-$pagination-active-color: $ad-secondary;
-$pagination-active-bg: transparent;
+// $pagination-active-color: $ad-secondary;
+// $pagination-active-bg: transparent;
 
 // Modal
 $btn-close-color: $ad-secondary;
@@ -82,9 +64,16 @@ $btn-close-focus-opacity: 1;
 
 $modal-header-border-width: 0;
 
+// Floating Label
+$form-floating-height: 5.9rem;
+$form-floating-textarea-height: $form-floating-height * 4;
+$form-floating-line-height: 1.8;
+$form-floating-padding-y: 1.3rem;
+$form-floating-input-padding-t: 2.225rem;
+$form-floating-input-padding-b: 0.625rem;
+$form-floating-label-transform: scale(0.85) translateY(-1rem)
+    translateX(0.15rem);
+
 // Slick
 $slick-dots-color: $wd-l-dark;
 $slick-dots-active-color: $wd-primary;
-
-// Content
-$hero-image: "https://picsum.photos/id/1005/1000";

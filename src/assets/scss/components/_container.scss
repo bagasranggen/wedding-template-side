@@ -28,4 +28,18 @@
             @include content-offset(1, 3);
         }
     }
+
+    &--full-size {
+        background-color: $wd-primary;
+        color: $wd-light;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding: 1.5rem;
+
+        @include media-breakpoint-up(md) {
+            margin-left: -3rem;
+            margin-right: -3rem;
+            padding: 3rem;
+        }
+    }
 }

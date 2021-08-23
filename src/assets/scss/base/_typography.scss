@@ -7,7 +7,7 @@
 }
 
 %ff-fuggles {
-    font-family: 'Fuggles', cursive;
+    font-family: "Fuggles", cursive;
 }
 
 %base-heading {
@@ -32,11 +32,11 @@ h5 {
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 5rem;
 }
 
 h3 {
-    font-size: 2.5rem;
+    font-size: 4rem;
 }
 
 h4,
@@ -44,7 +44,7 @@ h5 {
     font-size: 2rem;
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
     h1,
     h2 {
         line-height: 1.1;
@@ -55,15 +55,15 @@ h5 {
     }
 
     h2 {
-        font-size: 8rem;
+        font-size: 7rem;
     }
 
     h3 {
-        font-size: 6rem;
+        font-size: 4.5rem;
     }
 
     h4,
     h5 {
-        font-size: 5rem;
+        font-size: 3rem;
     }
 }
